@@ -1,0 +1,19 @@
+<!-- urlshortener/templates/shortener/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>URL Shortener</title>
+</head>
+<body>
+    <h1>URL Kısaltıcı</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="url" name="original_url" placeholder="Uzun URL" required>
+        <button type="submit">Kısalt</button>
+    </form>
+    {% if short_url %}
+        <p>Kısaltılmış URL: <a href="{{ short_url }}">{{ short_url }}</a> <br><br> Original : {{ original_url }}</p>
+    {% endif %}
+</body>
+</html>
